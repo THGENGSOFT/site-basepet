@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BasePet Curitiba | Suprimentos Pet — Atacado & Varejo</title>
+<meta name="description" content="Sua base de suprimentos pet em Curitiba e Região Metropolitana. Atacado e varejo com preço direto de fábrica e agilidade de entrega local.">
+<meta name="keywords" content="produtos pet atacado, pet shop curitiba, distribuidora pet, comedouro cachorro, bandeja gato curitiba, basepet">
+<meta name="author" content="BasePet Curitiba">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#1a7a6e"> <link rel="canonical" href="https://www.seusitedabasepet.com.br/"> 
+
+<link rel="icon" type="image/png" href="assets/img/logo5.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.seusitedabasepet.com.br/">
+<meta property="og:title" content="BasePet Curitiba | Suprimentos Pet no Atacado e Varejo">
+<meta property="og:description" content="Sua base de suprimentos pet em Curitiba e Região. Compre com preço de fábrica e entrega rápida.">
+<meta property="og:image" content="https://www.seusitedabasepet.com.br/assets/img/logo5.png"> <meta property="og:locale" content="pt_BR">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BasePet Curitiba | Suprimentos Pet no Atacado">
+<meta name="twitter:description" content="Sua base de suprimentos pet em Curitiba e Região. Atacado e varejo com preço de fábrica.">
+<meta name="twitter:image" content="https://www.seusitedabasepet.com.br/assets/img/logo5.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "BasePet Curitiba",
+  "image": "https://www.seusitedabasepet.com.br/assets/img/logo5.png",
+  "description": "Distribuidora de suprimentos pet em Curitiba e Região Metropolitana. Atendemos atacado (Pet Shops) e varejo (Tutores).",
+  "url": "https://www.seusitedabasepet.com.br/",
+  "telephone": "+5541987840087",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Curitiba",
+    "addressRegion": "PR",
+    "addressCountry": "BR"
+  },
+  "priceRange": "$$"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lightboxClose" onclick="closeLightbox()" aria-label="Fechar visualização de imagem">×</button>
+  <img id="lightbox-img" src="" alt="Visualização expandida do produto">
+</div>
+
+<div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+<div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+
+<aside class="cart-sidebar" id="cartSidebar" aria-label="Seu carrinho de compras" aria-hidden="true">
+  <header class="cart-header">
+    <div class="cart-title">🛒 Meu Pedido</div>
+    <button class="cart-close" id="cartCloseBtn" onclick="closeCart()" aria-label="Fechar carrinho">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+  </header>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty-state" id="cartEmptyState">
+      <div class="cart-empty-icon" aria-hidden="true">🐾</div>
+      <div class="cart-empty-text">Seu carrinho está vazio.<br>Adicione produtos e envie via WhatsApp!</div>
+    </div>
+  </div>
+  <footer class="cart-footer">
+    <div class="cart-note-group">
+      <label for="cartNote" class="cart-note-label">Observação (opcional)</label>
+      <textarea class="cart-note" id="cartNote" rows="2" placeholder="Ex: cores de preferência, endereço, dúvidas…"></textarea>
+    </div>
+    <div class="cart-total-row">
+      <div>
+        <div class="cart-total-label">Itens no pedido</div>
+        <div class="cart-total-count" id="cartCount">0 itens</div>
+      </div>
+      <i class="fa-solid fa-bag-shopping" aria-hidden="true" style="color:var(--teal);font-size:1.4rem;opacity:.4"></i>
+    </div>
+    <button class="btn-checkout" id="checkoutBtn" onclick="sendToWhatsApp()" aria-disabled="true">
+      <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Enviar pedido via WhatsApp
+    </button>
+    <div class="cart-hint">Você será redirecionado para o WhatsApp para confirmar seu pedido</div>
+  </footer>
+</aside>
+
+<nav class="mobile-menu" id="mobileMenu" aria-label="Navegação Mobile" aria-hidden="true">
+  <a href="#catalogo" onclick="closeMobileMenu()">Catálogo</a>
+  <a href="#quem-somos" onclick="closeMobileMenu()">Quem Somos</a>
+  <a href="#por-que-nos" onclick="closeMobileMenu()">Por que a BasePet?</a>
+  <a href="#missao" onclick="closeMobileMenu()">Missão & Valores</a>
+  <a href="https://wa.me/5541987840087?text=Olá! Vim pelo site da BasePet Curitiba." class="mobile-wpp-link" target="_blank" rel="noopener noreferrer">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+  </a>
+</nav>
+
+<header class="navbar" id="navbar" role="banner">
+  <div class="container nav-inner">
+    <a href="#" class="nav-brand" aria-label="BasePet Curitiba - Início">
+      <img src="assets/img/logo5.png" alt="Logo BasePet Curitiba" class="nav-logo-img">
+    </a>
+
+    <nav class="nav-desktop" aria-label="Navegação Principal">
+      <ul class="nav-links">
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#quem-somos">Quem Somos</a></li>
+        <li><a href="#por-que-nos">Diferenciais</a></li>
+        <li><a href="#missao">Missão</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-ctas">
+      <a href="https://wa.me/5541987840087?text=Olá! Vim pelo site da BasePet Curitiba." target="_blank" rel="noopener noreferrer" class="btn-wpp-nav">
+        <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> 
+        <span class="btn-wpp-label">Falar Agora</span>
+      </a>
+      <button class="cart-nav-btn" id="cartNavBtn" onclick="toggleCart()" aria-label="Abrir carrinho de compras">
+        <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+      <button class="nav-toggle" id="navToggle" onclick="toggleMobileMenu()" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main role="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-blob hero-blob-1" aria-hidden="true"></div>
+    <div class="hero-blob hero-blob-2" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <div class="hero-eyebrow">
+          <span aria-hidden="true">📍</span> Curitiba & Região Metropolitana
+        </div>
+        <h1 id="hero-title">Sua base de suprimentos <em>pet</em> em Curitiba</h1>
+        <p class="hero-desc">Atacado e varejo com preço direto de fábrica. Entregas ágeis na região, estoque local e atendimento real via WhatsApp.</p>
+        <div class="hero-btns">
+          <a href="#catalogo" class="btn-hero-primary">
+            <i class="fa-solid fa-paw" aria-hidden="true"></i> Ver Catálogo
+          </a>
+          <a href="https://wa.me/5541987840087?text=Olá! Gostaria de saber sobre preços no atacado." target="_blank" rel="noopener noreferrer" class="btn-hero-secondary">
+            <i class="fa-solid fa-handshake" aria-hidden="true"></i> Quero ser parceiro
+          </a>
+        </div>
+        <dl class="hero-stats">
+          <div class="hero-stat">
+            <dt>15+</dt><dd>produtos exclusivos</dd>
+          </div>
+          <div class="hero-stat">
+            <dt>B2B</dt><dd>& B2C</dd>
+          </div>
+          <div class="hero-stat">
+            <dt>CWB</dt><dd>Entrega local</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-card">
+          <div class="hc-label">Produto em destaque</div>
+          <div class="hc-row"><span class="hc-icon">🍽️</span><div class="hc-val">Kit Gato Completo<br><small class="hc-accent">Bandeja + Pá + Comedouro</small></div></div>
+        </div>
+        <div class="hero-card">
+          <div class="hc-label">Vantagem atacado</div>
+          <div class="hc-row"><span class="hc-icon">🏭</span><div class="hc-val">Preço <span class="hc-accent">direto de fábrica</span><br><small>sem intermediários</small></div></div>
+        </div>
+        <div class="hero-card">
+          <div class="hc-label">Atendimento</div>
+          <div class="hc-row"><span class="hc-icon">📱</span><div class="hc-val">WhatsApp<br><span class="hc-accent">(41) 9.8784-0087</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="mp-strip" aria-label="Disponível em Marketplaces">
+    <div class="mp-inner">
+      <span class="mp-label">Também disponível em</span>
+      <span class="mp-badge" aria-hidden="true">🛍️ Mercado Livre</span>
+      <span class="mp-badge" aria-hidden="true">🟠 Shopee</span>
+      <span class="mp-badge" aria-hidden="true">📦 Amazon</span>
+      <span class="mp-badge" aria-hidden="true">🟣 Magalu</span>
+    </div>
+  </aside>
+
+  <section id="catalogo" aria-labelledby="catalog-title">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow" aria-hidden="true">🐱 Catálogo</span>
+        <h2 class="section-title" id="catalog-title">Nossos Produtos</h2>
+        <p class="section-desc">Clique em qualquer produto para ver variações de cores. Adicione ao carrinho e envie seu pedido diretamente pelo WhatsApp.</p>
+      </div>
+
+      <div class="filter-tabs" role="tablist" aria-label="Filtro de produtos por categoria">
+        <button class="filter-tab active" role="tab" aria-pressed="true" onclick="filterProducts('todos',this)">🛒 Todos</button>
+        <button class="filter-tab" role="tab" aria-pressed="false" onclick="filterProducts('kit',this)">🎁 Kits</button>
+        <button class="filter-tab" role="tab" aria-pressed="false" onclick="filterProducts('comedouro',this)">🍽️ Comedouros</button>
+        <button class="filter-tab" role="tab" aria-pressed="false" onclick="filterProducts('bandeja',this)">🐈 Bandejas</button>
+        <button class="filter-tab" role="tab" aria-pressed="false" onclick="filterProducts('pa',this)">🧹 Pás</button>
+      </div>
+
+      <div class="products-grid" id="productsGrid" aria-live="polite">
+        </div>
+    </div>
+  </section>
+
+  <section id="quem-somos" aria-labelledby="about-title">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content reveal">
+          <div class="section-header">
+            <span class="section-eyebrow" aria-hidden="true">🏢 Quem Somos</span>
+            <h2 class="section-title" id="about-title">Onde a economia encontra o cuidado</h2>
+          </div>
+          <p class="about-text">A BasePet Curitiba nasceu de uma visão clara: encurtar a distância entre a indústria e o consumidor final. Percebemos que o mercado pet precisava de uma ponte mais eficiente, que unisse a robustez dos produtos de fábrica com a agilidade da entrega local.</p>
+          <p class="about-text">Localizados no coração de Curitiba, não somos apenas revendedores — somos <strong>facilitadores</strong>. Selecionamos o que há de melhor nas fábricas para garantir que tutores e lojistas da nossa região tenham acesso a produtos de alta performance com o melhor custo-benefício do mercado.</p>
+          
+          <div class="audiences">
+            <div class="audience-card">
+              <div class="audience-icon" aria-hidden="true">🐾</div>
+              <h3 class="audience-title">Para o seu Pet (Varejo)</h3>
+              <p class="audience-desc">Você, tutor, que busca o melhor para o seu companheiro sem pagar preços abusivos. Produtos direto da fábrica.</p>
+            </div>
+            <div class="audience-card">
+              <div class="audience-icon" aria-hidden="true">🏪</div>
+              <h3 class="audience-title">Para o seu Negócio (Atacado)</h3>
+              <p class="audience-desc">Pet shops e banho & tosa de Curitiba e RM encontram aqui um parceiro estratégico com preços de atacado.</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual reveal" aria-hidden="true">
+          <div class="about-tile"><i class="fa-solid fa-paw"></i></div>
+          <div class="about-tile"><i class="fa-solid fa-store"></i></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="por-que-nos" aria-labelledby="why-title">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow" aria-hidden="true">🌟 Diferenciais</span>
+        <h2 class="section-title" id="why-title">Por que escolher a BasePet Curitiba?</h2>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card reveal">
+          <div class="benefit-icon" aria-hidden="true">🏭</div>
+          <h3 class="benefit-title">Preço de Fábrica</h3>
+          <p class="benefit-desc">Nossa negociação direta elimina intermediários desnecessários, refletindo diretamente no seu bolso.</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-icon" aria-hidden="true">📍</div>
+          <h3 class="benefit-title">DNA Curitibano</h3>
+          <p class="benefit-desc">Conhecemos nossa região e as necessidades climáticas e de rotina dos pets daqui. Somos locais.</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-icon" aria-hidden="true">📱</div>
+          <h3 class="benefit-title">Multicanal</h3>
+          <p class="benefit-desc">Estamos onde você estiver: WhatsApp, marketplaces nacionais, retirada ou entrega em Curitiba.</p>
+        </div>
+        <div class="benefit-card reveal">
+          <div class="benefit-icon" aria-hidden="true">⚡</div>
+          <h3 class="benefit-title">Agilidade Real</h3>
+          <p class="benefit-desc">Estoque local significa entrega rápida e reposição imediata. Sem esperar semanas por importados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="missao" aria-labelledby="mission-title">
+    <div class="container">
+      <div class="section-header section-header--center reveal">
+        <span class="section-eyebrow section-eyebrow--light" aria-hidden="true">📜 Nossa Essência</span>
+        <h2 class="section-title section-title--light" id="mission-title">Missão, Visão e Valores</h2>
+      </div>
+      <div class="mvv-grid reveal">
+        <div class="mvv-card">
+          <div class="mvv-icon" aria-hidden="true">🎯</div>
+          <h3 class="mvv-title">Nossa Missão</h3>
+          <p class="mvv-text">Prover acesso facilitado a produtos pet de alta qualidade, conectando a indústria ao consumidor de forma justa, rápida e humana.</p>
+        </div>
+        <div class="mvv-card">
+          <div class="mvv-icon" aria-hidden="true">🔭</div>
+          <h3 class="mvv-title">Nossa Visão</h3>
+          <p class="mvv-text">Ser a principal referência em distribuição pet em Curitiba e Região, reconhecida pela eficiência logística e pela parceria real com nossos clientes.</p>
+        </div>
+        <div class="mvv-card">
+          <div class="mvv-icon" aria-hidden="true">💎</div>
+          <h3 class="mvv-title">Nossos Valores</h3>
+          <ul class="mvv-values">
+            <li class="mvv-value-item">Transparência em cada negociação</li>
+            <li class="mvv-value-item">Comprometimento com o bem-estar animal</li>
+            <li class="mvv-value-item">Foco no sucesso do parceiro lojista</li>
+            <li class="mvv-value-item">Agilidade que o mundo digital exige</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" aria-labelledby="cta-title">
+    <div class="container reveal">
+      <div class="cta-box">
+        <span class="section-eyebrow" aria-hidden="true">📞 Vamos começar?</span>
+        <h2 class="section-title" id="cta-title">Pronto para dar o melhor ao seu pet ou abastecer seu estoque?</h2>
+        <p class="section-desc">Combinamos preço de fábrica, estoque local e atendimento humano para garantir a melhor experiência.</p>
+        <div class="cta-btns">
+          <a href="https://wa.me/5541987840087?text=Olá! Quero comprar no varejo pela BasePet Curitiba." target="_blank" rel="noopener noreferrer" class="btn-cta-primary">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Quero comprar no Varejo
+          </a>
+          <a href="https://wa.me/5541987840087?text=Olá! Tenho interesse em me tornar parceiro atacadista da BasePet." target="_blank" rel="noopener noreferrer" class="btn-cta-secondary">
+            <i class="fa-solid fa-handshake" aria-hidden="true"></i> Quero ser Parceiro Atacadista
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <img src="assets/img/logo5.png" alt="Logo BasePet Curitiba em branco" class="footer-logo-img">
+        <p class="footer-tagline">Sua base de suprimentos pet em Curitiba e Região Metropolitana. Atacado e varejo com agilidade.</p>
+        <a href="https://wa.me/5541987840087" target="_blank" rel="noopener noreferrer" class="footer-wpp">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> (41) 9.8784-0087
+        </a>
+      </div>
+      
+      <nav class="footer-col" aria-label="Navegação de Rodapé">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#catalogo">Catálogo</a></li>
+          <li><a href="#quem-somos">Quem Somos</a></li>
+          <li><a href="#por-que-nos">Diferenciais</a></li>
+          <li><a href="#missao">Missão & Valores</a></li>
+        </ul>
+      </nav>
+
+      <address class="footer-col" style="font-style: normal;">
+        <h4>Contato</h4>
+        <div class="footer-contact-item">
+          <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+          <a href="https://wa.me/5541987840087" target="_blank" rel="noopener noreferrer">(41) 9.8784-0087</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+          <span>Curitiba — PR</span>
+        </div>
+        <div class="footer-contact-item" style="margin-top:20px">
+          <i class="fa-solid fa-store" aria-hidden="true"></i>
+          <span class="footer-mp">Mercado Livre · Shopee · Amazon · Magalu</span>
+        </div>
+      </address>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2026 BasePet Curitiba — Todos os direitos reservados</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5541987840087?text=Olá! Vim pelo site da BasePet Curitiba." target="_blank" rel="noopener noreferrer" class="wpp-float" aria-label="Fale conosco via WhatsApp">
+  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+</a>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
