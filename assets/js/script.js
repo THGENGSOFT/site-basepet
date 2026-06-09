@@ -31,7 +31,7 @@ const PRODUCTS = [
     variants:[
       { label:'Azul',     color:'#3b82f6', img:'2139/2139azul.jpg' },
       { label:'Rosa',     color:'#f472b6', img:'2139/2139rosa.jpg' },
-      { label:'Vermelho', color:'#ef4444', imgs:['2139/2139vermelho.jpg','2139/2139vermelho(1).jpg','2139/2139Vermelho_.jpg'] },
+      { label:'Vermelho', color:'#ef4444', imgs:['2139/2139vermelho.jpg','2139/2139vermelho1.jpg','2139/2139vermelho2.jpg'] },
     ]
   },
   {

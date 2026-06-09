@@ -396,13 +396,14 @@ section { padding:72px 0; }
   border:1px solid rgba(255,255,255,.6);
   box-shadow:0 2px 8px rgba(0,0,0,.15);
   opacity:0; transition:all var(--t);
-  z-index:3; /* Garante que fique abaixo das cores */
+  z-index:3; /* Fica abaixo das cores */
   cursor:pointer;
 }
 @media (hover:hover) {
   .product-card:hover .gallery-arrow { opacity:1; }
   .gallery-arrow:hover { background:var(--white); transform:translateY(-50%) scale(1.1); color:var(--teal-d); }
 }
+/* Always show on touch */
 @media (hover:none) {
   .gallery-arrow { opacity:.85; }
 }
@@ -412,18 +413,18 @@ section { padding:72px 0; }
 /* ── SELETOR DE CORES (SWATCHES) ── */
 .color-swatches {
   position:absolute; top:12px; right:12px;
-  left:60px; /* Protege a etiqueta (Badge de Kit/Novo) na esquerda */
+  left:60px; /* Protege a etiqueta (Badge) na esquerda */
   z-index:4; /* Sempre acima das setas */
   display:flex;
-  flex-direction:row; /* Alinha na horizontal em vez de vertical */
-  flex-wrap:wrap; /* Quebra para a linha de baixo se tiverem muitas cores */
+  flex-direction:row; /* Em LINHA, não em coluna */
+  flex-wrap:wrap; /* Quebra de linha automática */
   justify-content:flex-end;
   gap:8px;
-  pointer-events:none; /* Permite clicar no zoom da foto através do espaço vazio entre as bolinhas */
+  pointer-events:none; /* Deixa o clique vazar para a foto no fundo */
 }
 .color-swatch {
-  pointer-events:auto; /* Reativa o clique apenas na bolinha */
-  width:20px; height:20px; /* Bolinhas ligeiramente maiores para toque no celular */
+  pointer-events:auto; /* O clique funciona só na bolinha */
+  width:20px; height:20px;
   border-radius:50%;
   border:2px solid rgba(255,255,255,.85);
   box-shadow:0 2px 6px rgba(0,0,0,.3);

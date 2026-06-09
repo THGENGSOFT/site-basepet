@@ -1,0 +1,20 @@
+{
+  "name": "BasePet MMB",
+  "short_name": "BasePet",
+  "start_url": "/basepet/dashboard_online.html",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#050505",
+  "icons": [
+    {
+      "src": "assets/img/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
